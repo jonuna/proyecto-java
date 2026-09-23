@@ -87,5 +87,14 @@ public class CatalogoProductos {
         System.out.println(" [!] Error: Producto a eliminar no encontrado.");
         return false;
     }
+    // Método dentro de CatalogoProductos.java
+    public void cargarDesdeLista(List<Producto> productos) {
+        this.listaProductos.clear();
+        this.codigosRegistrados.clear();
+        for (Producto p : productos) {
+            this.listaProductos.add(p);
+            this.codigosRegistrados.add(p.getCodigo());
+        }
+    }
 
 }

@@ -1,7 +1,11 @@
+com/mycompany/proyecto1/Datos/ConexionBD.class
+com/mycompany/proyecto1/MainApp.class
+com/mycompany/proyecto1/modelo/muestraTomadaLab.class
+com/mycompany/proyecto1/Main.class
+com/mycompany/proyecto1/Datos/ProductoDAO.class
+com/mycompany/proyecto1/gui/CatalogoFXApp.class
 com/mycompany/proyecto1/modelo/Cliente.class
 com/mycompany/proyecto1/modelo/ItemProforma.class
 com/mycompany/proyecto1/modelo/Producto.class
-com/mycompany/proyecto1/modelo/muestraTomadaLab.class
-com/mycompany/proyecto1/Main.class
 com/mycompany/proyecto1/modelo/Proforma.class
 com/mycompany/proyecto1/modelo/muestraTomadaCasa.class
