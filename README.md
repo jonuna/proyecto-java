@@ -11,20 +11,87 @@ Este proyecto implementa estructuras de datos lineales (Pila LIFO y Cola Circula
 
 ## 🛠️ Tecnologías Utilizadas
 * **Lenguaje:** Java (Versión 17+)
+* **IDE Recomendado:** NetBeans IDE 12+ / 17+ / 21+
 * **Pruebas Unitarias:** JUnit 5 (Jupiter API)
 * **Gestor de Dependencias:** Maven
+* **Librerías / Frameworks:**
+  * **JavaFX** (`javafx-controls`, `javafx-fxml`) v21.0.2
+  * **SQLite JDBC** v3.45.1.0
 
 ---
 
-## 📁 Estructura del Código
-* `com.mycompany.proyecto1.pilaYcola.PilaYCola`:
-  * `PilaProductos`: Implementación estática LIFO.
-  * `ColaProductos`: Implementación estática de Cola Circular FIFO.
-  * `RepositorioProductos`: Capa de abstracción basada en el patrón Repository.
-* `tester`: Clase con el conjunto de pruebas unitarias implementadas en JUnit 5.
+## 📁 Estructura del Proyecto
+
+```text
+src/main/java/com/mycompany/proyecto1/
+│
+├── MainApp.java                      # Clase principal lanzadora
+│
+├── datos/
+│   ├── ConexionBD.java               # Gestión de conexión SQLite e inicialización de tabla
+│   └── ProductoDAO.java              # Operaciones CRUD en la base de datos
+│
+├── gui/
+│   └── CatalogoFXApp.java            # Interfaz Gráfica con JavaFX y controladores
+|
+├── pilaYcola/
+│   └── PilaYCola.java                # Pila y cola de productos
+│
+└── modelo/
+    ├── Cliente.java                  # Clase abstracta Cliente
+    ├── clienteMayosita.java          # Subclase Cliente Mayorista (RUC)
+    ├── clienteMinorista.java         # Subclase Cliente Minorista (Cédula)
+    ├── Iidentificacion.java          # Interfaz para identificación
+    ├── Producto.java                 # Clase base Producto
+    ├── muestraTomadaCasa.java        # Subclase de Producto (Muestra a domicilio)
+    ├── muestraTomadaLab.java         # Subclase de Producto (Muestra en laboratorio)
+    ├── CatalogoProductos.java        # Gestión del catálogo con ArrayList y HashSet
+    ├── ItemProforma.java             # Detalle de ítem de proforma
+    └── Proforma.java                 # Entidad Proforma
+
+src/main/java/com/mycompany/Test/
+│
+├── tester.java                       # Clase con el conjunto de pruebas unitarias implementadas en JUnit 5.
+
+```
+---
+
+
+## 🚀 Pasos para Ejecutar la Aplicación
+1. Abrir el Proyecto en NetBeans:
+    Abre NetBeans y ve a File -> Open Project....
+    Selecciona la carpeta del proyecto proyecto1.
+
+2. Configurar la Clase Principal (Main Class):
+
+    Haz clic derecho sobre el proyecto proyecto1 en la pestaña Projects.
+    Selecciona Properties.
+    En el menú lateral de la izquierda, selecciona Run.
+    En la casilla Main Class, presiona Browse... y selecciona: com.mycompany.proyecto1.MainApp
+    Haz clic en OK.
+
+3. Compilar y Construir:
+    Haz clic derecho sobre el proyecto y selecciona Clean and Build (Limpiar y Construir).
+
+4. Ejecutar:
+    Presiona la tecla F6 o haz clic en el botón verde Run Project.
 
 ---
 
+## 💻 Funcionalidades de la Aplicación
+
+Agregar Producto: Permite registrar muestras de laboratorio o de domicilio. Valida duplicados por código de producto.
+
+Buscar Producto: Carga los datos del producto en el formulario ingresando su código único.
+
+Actualizar Producto: Permite modificar los datos de un producto previamente registrado.
+
+Eliminar Producto: Elimina el registro seleccionado tanto de la colección en memoria como de la base de datos SQLite.
+
+Persistencia Automática: Al iniciar la aplicación, todos los registros almacenados en catalogo.db se cargan en la interfaz gráfica.   
+
+
+---
 ## 🚀 Instrucciones para Ejecutar la Aplicación
 
 1. **Clonar el repositorio:**
@@ -52,3 +119,4 @@ Haz clic derecho sobre el archivo y selecciona Test File (o presiona CTRL + F6).
 
 Mediante línea de comandos (Maven):
   mvn test
+
